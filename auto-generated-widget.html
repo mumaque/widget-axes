@@ -241,7 +241,7 @@
     //<![CDATA[
 /* global cprequire_test macro chilipeppr THREE $ requirejs cprequire cpdefine chilipeppr */
 // Test this element. This code is auto-removed by the chilipeppr.load()
-cprequire_test(["inline:com-chilipeppr-widget-xyz"], function (xyz) {
+cprequire_test(["inline:com-chilipeppr-widget-xyz"], function(xyz) {
     console.log("test running of " + xyz.id);
     //sp.init("192.168.1.7");
     //xyz.initAs3dPrinting();
@@ -256,23 +256,15 @@ cprequire_test(["inline:com-chilipeppr-widget-xyz"], function (xyz) {
     $('#com-chilipeppr-widget-xyz').wrap(wrapDiv);
 
     // test out planner resume/pause
-    var testPauseResume = function () {
-        setTimeout(function () {
-            chilipeppr.publish('/com-chilipeppr-interface-cnccontroller/plannerpause', "");
-        }, 5000);
-        setTimeout(function () {
-            chilipeppr.publish('/com-chilipeppr-interface-cnccontroller/plannerresume', "");
-        }, 10000);
-        setTimeout(function () {
-            chilipeppr.publish('/com-chilipeppr-interface-cnccontroller/plannerpause', "");
-        }, 15000);
-        setTimeout(function () {
-            chilipeppr.publish('/com-chilipeppr-interface-cnccontroller/plannerresume', "");
-        }, 20000);
+    var testPauseResume = function() {
+        setTimeout(function() { chilipeppr.publish('/com-chilipeppr-interface-cnccontroller/plannerpause', ""); }, 5000);
+        setTimeout(function() { chilipeppr.publish('/com-chilipeppr-interface-cnccontroller/plannerresume', ""); }, 10000);
+        setTimeout(function() { chilipeppr.publish('/com-chilipeppr-interface-cnccontroller/plannerpause', ""); }, 15000);
+        setTimeout(function() { chilipeppr.publish('/com-chilipeppr-interface-cnccontroller/plannerresume', ""); }, 20000);
     };
 
-    var testAxesValUpdates = function () {
-        setTimeout(function () {
+    var testAxesValUpdates = function() {
+        setTimeout(function() {
             chilipeppr.publish("/com-chilipeppr-interface-cnccontroller/axes", {
                 x: 0.005,
                 y: 10.46,
@@ -288,7 +280,7 @@ cprequire_test(["inline:com-chilipeppr-widget-xyz"], function (xyz) {
                 }
             });
         }, 1000);
-        setTimeout(function () {
+        setTimeout(function() {
             chilipeppr.publish("/com-chilipeppr-interface-cnccontroller/axes", {
                 x: 192,
                 y: 0.028,
@@ -297,7 +289,7 @@ cprequire_test(["inline:com-chilipeppr-widget-xyz"], function (xyz) {
                 type: "work"
             });
         }, 2000);
-        setTimeout(function () {
+        setTimeout(function() {
             chilipeppr.publish("/com-chilipeppr-interface-cnccontroller/axes", {
                 x: -3288.73,
                 y: -0,
@@ -307,7 +299,7 @@ cprequire_test(["inline:com-chilipeppr-widget-xyz"], function (xyz) {
             });
         }, 3000);
 
-        setTimeout(function () {
+        setTimeout(function() {
             chilipeppr.publish("/com-chilipeppr-interface-cnccontroller/axes", {
                 x: 940.5744,
                 y: null,
@@ -316,7 +308,7 @@ cprequire_test(["inline:com-chilipeppr-widget-xyz"], function (xyz) {
                 type: "work"
             });
         }, 4000);
-        setTimeout(function () {
+        setTimeout(function() {
             chilipeppr.publish("/com-chilipeppr-interface-cnccontroller/axes", {
                 x: 0.574,
                 y: 32.424,
@@ -325,7 +317,7 @@ cprequire_test(["inline:com-chilipeppr-widget-xyz"], function (xyz) {
                 type: "work"
             });
         }, 5000);
-        setTimeout(function () {
+        setTimeout(function() {
             chilipeppr.publish("/com-chilipeppr-interface-cnccontroller/axes", {
                 x: null,
                 y: 132.424,
@@ -337,27 +329,27 @@ cprequire_test(["inline:com-chilipeppr-widget-xyz"], function (xyz) {
     };
 
     // test units change
-    var testUnitsChange = function () {
+    var testUnitsChange = function() {
 
-        setTimeout(function () {
+        setTimeout(function() {
             chilipeppr.publish("/com-chilipeppr-interface-cnccontroller/units", "inch");
         }, 1000);
-        setTimeout(function () {
+        setTimeout(function() {
             chilipeppr.publish("/com-chilipeppr-interface-cnccontroller/units", "mm");
         }, 5000);
     };
 
     // test units change
-    var testCoordsChange = function () {
+    var testCoordsChange = function() {
 
-        setTimeout(function () {
+        setTimeout(function() {
             var c = {
                 coord: "G54",
                 coordNum: 54
             };
             chilipeppr.publish("/com-chilipeppr-interface-cnccontroller/coords", c);
         }, 1000);
-        setTimeout(function () {
+        setTimeout(function() {
             var c = {
                 coord: "G55",
                 coordNum: 55
@@ -403,13 +395,13 @@ cprequire_test(["inline:com-chilipeppr-widget-xyz"], function (xyz) {
 
 } /*end_test*/ );
 
-cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"], function () {
+cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"], function() {
     return {
         id: "com-chilipeppr-widget-xyz",
-        url: "http://raw.githubusercontent.com/chilipeppr/widget-axes/master/auto-generated-widget.html",       // The final URL of the working widget as a single HTML file with CSS and Javascript inlined. You can let runme.js auto fill this if you are using Cloud9.
-        fiddleurl: "http://ide.c9.io/chilipeppr/widget-axes", // The edit URL. This can be auto-filled by runme.js in Cloud9 if you'd like, or just define it on your own to help people know where they can edit/fork your widget
-        githuburl: "http://github.com/chilipeppr/widget-axes", // The backing github repo
-        testurl: "http://widget-axes-chilipeppr.c9users.io/widget.html",   // The standalone working widget so can view it working by itself
+        url: "http://raw.githubusercontent.com/mumaque/widget-axes/master/auto-generated-widget.html", // The final URL of the working widget as a single HTML file with CSS and Javascript inlined. You can let runme.js auto fill this if you are using Cloud9.
+        fiddleurl: "http://ide.c9.io/mumaque/widget-axes", // The edit URL. This can be auto-filled by runme.js in Cloud9 if you'd like, or just define it on your own to help people know where they can edit/fork your widget
+        githuburl: "http://github.com/mumaque/widget-axes", // The backing github repo
+        testurl: "http://widget-axes-mumaque.c9users.io/widget.html", // The standalone working widget so can view it working by itself
         name: "Widget / XYZ Axes v2",
         desc: "The Axes widget shows the XYZA values of the axes of your CNC controller. It also enables you to jog, home, change units, and change Work Coordinate Systems.",
         publish: {},
@@ -419,20 +411,20 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
         },
         foreignSubscribe: {
             "/com-chilipeppr-interface-cnccontroller/axes": "We want X,Y,Z,A,MX,MY,MZ,MA axis updates.",
-                "/com-chilipeppr-interface-cnccontroller/coords": "Track which is active: G54, G55, etc.",
-                "/com-chilipeppr-interface-cnccontroller/plannerpause": "We need to know when to pause sending jog cmds.",
-                "/com-chilipeppr-interface-cnccontroller/plannerresume": "We need to know when to resume jog cmds.",
-                "/com-chilipeppr-interface-cnccontroller/units": "Deprecated. Not listening to this anymore. See next.",
-                '/com-chilipeppr-widget-3dviewer/unitsChanged': "Listenting to see if the 3D Viewer is telling us that the user Gcode is in a specific coordinate and then just assuming we will only be sent axes coordinate updates in that unit. Not using /com-chilipeppr-interface-cnccontroller/units anymore."
+            "/com-chilipeppr-interface-cnccontroller/coords": "Track which is active: G54, G55, etc.",
+            "/com-chilipeppr-interface-cnccontroller/plannerpause": "We need to know when to pause sending jog cmds.",
+            "/com-chilipeppr-interface-cnccontroller/plannerresume": "We need to know when to resume jog cmds.",
+            "/com-chilipeppr-interface-cnccontroller/units": "Deprecated. Not listening to this anymore. See next.",
+            '/com-chilipeppr-widget-3dviewer/unitsChanged': "Listenting to see if the 3D Viewer is telling us that the user Gcode is in a specific coordinate and then just assuming we will only be sent axes coordinate updates in that unit. Not using /com-chilipeppr-interface-cnccontroller/units anymore."
         },
-        init: function () {
+        init: function() {
 
             // Do UI setup
             this.initBody();
             this.btnSetup();
             this.menuSetup();
             this.jogSetup();
-            
+
             this.pencilSetup();
 
             this.forkSetup();
@@ -506,7 +498,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             var btn = $('<button class="btn btn-xs btn-default xyz-pencil"><span class="glyphicon glyphicon-pencil"></span></button>');
             btn.click(this.pencilClick.bind(this));
             tgtEl.find('.com-chilipeppr-xyz-pos-well').prepend(btn);
-            
+
             // attach descriptive popoover
             btn.popover({
                 animation: true,
@@ -526,7 +518,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
         pencilClick: function(evt) {
             console.log("got pencilClick. evt:", evt);
             var tgtEl = $(evt.currentTarget);
-            
+
             var txt = $('<input type="number" class="form-control xyz-number" placeholder="Enter New Coord">');
             txt.keyup(this.pencilKeypress.bind(this));
             var posEl = tgtEl.parents('.com-chilipeppr-xyz-pos-well');
@@ -535,7 +527,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             txt.val(val);
             posEl.prepend(txt);
             txt.focus();
-            
+
             // hide popover
             posEl.find('button').popover('hide');
         },
@@ -546,36 +538,37 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             var posEl = tgtEl.parents('.com-chilipeppr-xyz-pos-well');
             var axis = posEl.data('axis').toUpperCase();
             console.log("axis:", axis);
-            
+
             // see if return key
             if (evt.keyCode == 13) {
                 console.log("enter key hit");
-                
+
                 // send gcode
                 var gcode = "G90 G0 " + axis + tgtEl.val();
                 console.log("about to send gcode:", gcode);
                 chilipeppr.publish('/com-chilipeppr-widget-serialport/jsonSend', {
-                    D: gcode, 
-                    Id:"axes" + this.pencilCtr++
+                    D: gcode,
+                    Id: "axes" + this.pencilCtr++
                 });
-                
+
                 this.pencilHide(tgtEl.parents('.com-chilipeppr-xyz-pos-well'));
-            } else if (evt.keyCode == 27) {
+            }
+            else if (evt.keyCode == 27) {
                 console.log("ESC key hit");
                 this.pencilHide(tgtEl.parents('.com-chilipeppr-xyz-pos-well'));
             }
-            
-            
+
+
         },
         pencilHide: function(tgtEl) {
-        		console.log("pencilHide");
-        		// hide popover
-          tgtEl.find('button').popover('hide');
+            console.log("pencilHide");
+            // hide popover
+            tgtEl.find('button').popover('hide');
             //tgtEl.popover('hide');
             tgtEl.find('.xyz-pencil').remove();
             tgtEl.find('.xyz-number').remove();
         },
-        initAs3dPrinting: function () {
+        initAs3dPrinting: function() {
             // by default we'll show the A/B/C axes
             $('#com-chilipeppr-widget-xyz-a').removeClass("hidden");
             $('#com-chilipeppr-widget-xyz-b').removeClass("hidden");
@@ -587,41 +580,42 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             $('#com-chilipeppr-widget-xyz-b .com-chilipeppr-xyz-dim').text("mm");
 
         },
-        setupShowHideWcsBtn: function () {
+        setupShowHideWcsBtn: function() {
 
             var btnEl = $("#com-chilipeppr-widget-xyz .btnToggleShowWcs");
             btnEl.click(this.toggleWcs.bind(this));
             btnEl.popover();
             chilipeppr.load(
-                "#com-chilipeppr-widgetholder-wcs", 
+                "#com-chilipeppr-widgetholder-wcs",
                 //"http://fiddle.jshell.net/Danal/4ete4691/show/light/",
                 "http://raw.githubusercontent.com/chilipeppr/widget-wcs/master/auto-generated-widget.html",
-                function () {
-                cprequire(["inline:com-chilipeppr-widget-wcs"], function (wcs) {
-                    console.log("test running of " + wcs.id);
-                    wcs.init();
+                function() {
+                    cprequire(["inline:com-chilipeppr-widget-wcs"], function(wcs) {
+                        console.log("test running of " + wcs.id);
+                        wcs.init();
+                    });
                 });
-            });
         },
-        toggleWcs: function (evt) {
+        toggleWcs: function(evt) {
             $("#com-chilipeppr-widget-xyz .btnToggleShowWcs").popover('hide');
             var wcsEl = $('#com-chilipeppr-widgetholder-wcs');
             if (wcsEl.hasClass("hidden")) {
                 wcsEl.removeClass("hidden");
                 $('#com-chilipeppr-widget-xyz .btnToggleShowWcs').addClass("active");
-            } else {
+            }
+            else {
                 wcsEl.addClass("hidden");
                 $('#com-chilipeppr-widget-xyz .btnToggleShowWcs').removeClass("active");
 
             }
         },
-        setupShowHideTouchBtn: function () {
+        setupShowHideTouchBtn: function() {
             $("#com-chilipeppr-widget-xyz .btnToggleShowTouchJog").popover();
             //$( window ).resize(this.showHideTouchBtn.bind(this));
             this.showHideTouchBtn();
             $(window).resize(this.showHideTouchBtn.bind(this));
         },
-        showHideTouchBtn: function () {
+        showHideTouchBtn: function() {
             //console.log("should we show or hide the touch btn");
             var btnEl = $("#com-chilipeppr-widget-xyz .btnShowTouchJog");
             var btnParentWidth = btnEl.parent().parent().width();
@@ -634,7 +628,8 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
                 btnEl.css('visibility', 'hidden');
                 btnEl.addClass("hidden");
                 //apply class1
-            } else {
+            }
+            else {
                 //apply class2
                 btnEl.css('visibility', 'visible');
                 btnEl.removeClass("hidden");
@@ -644,7 +639,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
         canvas: null,
         el: null,
         ctx: null,
-        setupTouchArea: function () {
+        setupTouchArea: function() {
             this.canvas = $('#com-chilipeppr-widget-xyz .touchpad-overlay canvas');
             var tpad = $('#com-chilipeppr-widget-xyz .touchpad-overlay');
 
@@ -663,7 +658,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             //this.ctx = $('#com-chilipeppr-widget-xyz .touchpad-overlay canvas')[0].getContext("2d");
             var that = this;
 
-            tpad.bind("touchstart", function (e) {
+            tpad.bind("touchstart", function(e) {
                 //console.log("about to dish touchstart evt:", e);
                 that.handleStart(e);
             });
@@ -699,20 +694,21 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
 
             this.log("touch area setup");
         },
-        toggleTouchJog: function () {
+        toggleTouchJog: function() {
             $('#com-chilipeppr-widget-xyz .btnToggleShowTouchJog').popover('hide');
             var tpad = $('#com-chilipeppr-widget-xyz .touchpad-overlay');
             if (tpad.hasClass("hidden")) {
                 tpad.removeClass("hidden");
                 this.canvasResize();
                 $('#com-chilipeppr-widget-xyz .btnToggleShowTouchJog').addClass("active");
-            } else {
+            }
+            else {
                 tpad.addClass("hidden");
                 $('#com-chilipeppr-widget-xyz .btnToggleShowTouchJog').removeClass("active");
 
             }
         },
-        canvasResize: function () {
+        canvasResize: function() {
             console.log("touchpad resizing");
             var tpad = $('#com-chilipeppr-widget-xyz .touchpad-overlay');
 
@@ -726,7 +722,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             this.ctx = $('#com-chilipeppr-widget-xyz .touchpad-overlay canvas')[0].getContext("2d");
             this.drawText();
         },
-        drawText: function () {
+        drawText: function() {
             var x = this.el.width / 2;
             var y = this.el.height / 2;
 
@@ -741,7 +737,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             x: 0,
             y: 0
         },
-        onMouseDown: function (evt) {
+        onMouseDown: function(evt) {
             console.log("onMouseDown:", evt);
             this.isMouseDown = true;
             //inside my mouse events handler:
@@ -766,7 +762,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             ctx.fill();
             ctx.stroke();
         },
-        onMouseMove: function (evt) {
+        onMouseMove: function(evt) {
             if (!this.isMouseDown) {
                 return;
             }
@@ -798,7 +794,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
 
             this.mouseLastOffset = newpos;
         },
-        onMouseUp: function (evt) {
+        onMouseUp: function(evt) {
             console.log("onMouseUp:", evt);
             this.isMouseDown = false;
 
@@ -827,7 +823,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
         },
         scrollFadeTimer: null,
         scrollLastPosDir: "up",
-        onScroll: function (evt) {
+        onScroll: function(evt) {
             console.log("onScroll:", evt.originalEvent); //, evt.originalEvent.wheelDelta);
             evt.preventDefault();
 
@@ -840,7 +836,8 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
                 if (evt.originalEvent.axis == 2) {
                     // left/right scroll
                     evt.originalEvent.wheelDeltaY = evt.originalEvent.wheelDelta;
-                } else {
+                }
+                else {
                     evt.originalEvent.wheelDeltaX = evt.originalEvent.wheelDelta;
                 }
             }
@@ -852,7 +849,8 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
                     this.sendDone();
                     this.scrollLastPosDir = "up";
                 }
-            } else {
+            }
+            else {
                 console.log('scrolling down !');
                 if (this.scrollLastPosDir != "dn") {
                     this.sendDone();
@@ -921,7 +919,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
                 that.scrollPrev.x = 0;
                 that.scrollPrev.y = 0;
             }
-            this.scrollFadeTimer = setTimeout(function () {
+            this.scrollFadeTimer = setTimeout(function() {
                 that.scrollPrev.x = 0;
                 that.scrollPrev.y = 0;
                 that.ctx.clearRect(0, 0, that.el.width, that.el.height);
@@ -935,7 +933,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             y: 0
         },
         inZMode: false,
-        handleStart: function (evt) {
+        handleStart: function(evt) {
 
             console.log("touchstart. evt:", evt);
             var el = this.el; //= document.getElementsByTagName("canvas")[0];
@@ -961,7 +959,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
         },
         //divider: 10,
         sendCtr: 0,
-        sendMove: function (touchid, prevpos, newpos) {
+        sendMove: function(touchid, prevpos, newpos) {
 
             var deltax = newpos.x - prevpos.x;
             var deltay = newpos.y - prevpos.y;
@@ -989,13 +987,13 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             if (this.sendCtr > 999999) this.sendCtr = 0;
 
         },
-        sendDone: function () {
+        sendDone: function() {
             chilipeppr.publish("/com-chilipeppr-widget-serialport/send", "!\n%\n");
-            setTimeout(function () {
+            setTimeout(function() {
                 chilipeppr.publish("/com-chilipeppr-widget-serialport/send", "%\n");
             }, 200);
         },
-        sendMoveZ: function (touchid, prevpos, newpos) {
+        sendMoveZ: function(touchid, prevpos, newpos) {
 
             //var deltax = newpos.x - prevpos.x;
             var deltaz = newpos.y - prevpos.y;
@@ -1011,7 +1009,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             chilipeppr.publish("/com-chilipeppr-widget-serialport/send", gcode);
 
         },
-        handleMove: function (evt) {
+        handleMove: function(evt) {
 
             var el = this.el; //document.getElementsByTagName("canvas")[0];
             var ctx = this.ctx; //el.getContext("2d");
@@ -1050,13 +1048,14 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
 
                         this.ongoingTouches.splice(idx, 1, this.copyTouch(touches[i])); // swap in the new touch record
                         //this.log(".");
-                    } else {
+                    }
+                    else {
                         this.log("can't figure out which touch to continue");
                     }
                 }
             }
         },
-        handleEnd: function (evt) {
+        handleEnd: function(evt) {
 
             console.log("touchend/touchleave. evt:", evt);
             var el = this.el; //document.getElementsByTagName("canvas")[0];
@@ -1079,7 +1078,8 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
                         ctx.fillRect(touches[i].clientX - 14 - offset.x, touches[i].clientY - 14 - offset.y, 18, 18); // and a square at the end
                         this.ongoingTouches.splice(i, 1); // remove it; we're done
 
-                    } else {
+                    }
+                    else {
                         this.log("can't figure out which touch to end");
                     }
                 }
@@ -1088,7 +1088,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             this.sendDone();
             this.fadeCanvas();
         },
-        handleCancel: function (evt) {
+        handleCancel: function(evt) {
             evt.preventDefault();
             this.log("touchcancel.");
             var touches = evt.originalEvent.changedTouches;
@@ -1097,7 +1097,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
                 this.ongoingTouches.splice(i, 1); // remove it; we're done
             }
         },
-        colorForTouch: function (touch) {
+        colorForTouch: function(touch) {
             var r = touch.identifier % 16;
             var g = Math.floor(touch.identifier / 3) % 16;
             var b = Math.floor(touch.identifier / 7) % 16;
@@ -1111,14 +1111,14 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             //this.log("color for touch with identifier " + touch.identifier + " = " + color);
             return color;
         },
-        copyTouch: function (touch) {
+        copyTouch: function(touch) {
             return {
                 identifier: touch.identifier,
                 clientX: touch.clientX,
                 clientY: touch.clientY
             };
         },
-        ongoingTouchIndexById: function (idToFind) {
+        ongoingTouchIndexById: function(idToFind) {
             for (var i = 0; i < this.ongoingTouches.length; i++) {
                 var id = this.ongoingTouches[i].identifier;
 
@@ -1128,12 +1128,12 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             }
             return -1; // not found
         },
-        log: function (msg) {
+        log: function(msg) {
             console.log(msg);
             //var p = document.getElementById('log');
             //p.innerHTML = msg + "\n" + p.innerHTML;
         },
-        findPos: function (obj) {
+        findPos: function(obj) {
             var curleft = 0,
                 curtop = 0;
 
@@ -1150,14 +1150,14 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             }
         },
         lastImage: null,
-        fadeCanvas: function () {
+        fadeCanvas: function() {
             //console.log("fadeCanvas. this.el:", this.el);
             this.lastImage = this.ctx.getImageData(0, 0, this.el.width, this.el.height);
             this.fadeCtr = 0;
             this.fadeCanvasStep();
         },
         fadeCtr: 0,
-        fadeCanvasStep: function () {
+        fadeCanvasStep: function() {
 
             //console.log("fadeCanvasStep");
             var pixelData = this.lastImage.data;
@@ -1175,12 +1175,13 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             }
             setTimeout(this.fadeCanvasStep.bind(this), 50);
         },
-        drawCircle: function (ctx, e) {
+        drawCircle: function(ctx, e) {
             var x, y;
             if (e.type.match(/touch/)) {
                 x = e.originalEvent.changedTouches[0].clientX;
                 y = e.originalEvent.changedTouches[0].clientY;
-            } else {
+            }
+            else {
                 x = e.offsetX;
                 y = e.offsetY;
             }
@@ -1190,40 +1191,41 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             ctx.closePath();
             ctx.fill();
         },
-        toolbarSetup: function () {
+        toolbarSetup: function() {
             // config the css sizes to get more compact display
             var config = localStorage.getItem("/" + this.id + "/size");
             if (config == "small") this.bodyShowSmall();
 
             var that = this;
-            $('#com-chilipeppr-widget-xyz .view-small').click(function () {
+            $('#com-chilipeppr-widget-xyz .view-small').click(function() {
                 that.bodyShowSmall();
                 localStorage.setItem("/" + that.id + "/size", "small");
             });
-            $('#com-chilipeppr-widget-xyz .view-large').click(function () {
+            $('#com-chilipeppr-widget-xyz .view-large').click(function() {
                 that.bodyShowNormal();
                 localStorage.setItem("/" + that.id + "/size", "normal");
             });
         },
-        bodyShowSmall: function () {
+        bodyShowSmall: function() {
             $('#com-chilipeppr-widget-xyz').addClass("size-small");
             $('#com-chilipeppr-widget-xyz .view-small').addClass("active");
             $('#com-chilipeppr-widget-xyz .view-large').removeClass("active");
         },
-        bodyShowNormal: function () {
+        bodyShowNormal: function() {
             $('#com-chilipeppr-widget-xyz').removeClass("size-small");
             $('#com-chilipeppr-widget-xyz .view-small').removeClass("active");
             $('#com-chilipeppr-widget-xyz .view-large').addClass("active");
         },
         options: null,
-        setupUiFromCookie: function () {
+        setupUiFromCookie: function() {
             // read vals from cookies
             var options = $.cookie('com-chilipeppr-widget-xyz-options');
 
             if (true && options) {
                 options = $.parseJSON(options);
                 console.log("just evaled options: ", options);
-            } else {
+            }
+            else {
                 options = {
                     showA: false,
                     moveBy: 0.01
@@ -1245,7 +1247,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             });
 
         },
-        saveOptionsCookie: function () {
+        saveOptionsCookie: function() {
             var options = {
                 showA: false,
                 moveBy: this.baseval
@@ -1260,7 +1262,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
         },
         pauseBtnIcon: null,
         isPausedByPlanner: false, // keeps track of whether we've been told to pause sending by the planner buffer
-        onPlannerPause: function () {
+        onPlannerPause: function() {
             console.log("xyz-onPlannerPause. being asked to pause.");
             if (this.pauseBtnIcon === null) this.pauseBtnIcon = $('#com-chilipeppr-widget-xyz div.plannerpause');
 
@@ -1270,11 +1272,12 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
                 this.isPausedByPlanner = true;
                 // visuall indicate we were paused by planner, not by a human
                 this.pauseBtnIcon.addClass('btnIconWarning');
-            } else {
+            }
+            else {
                 console.log("got planner pause, but we're already paused");
             }
         },
-        onPlannerResume: function () {
+        onPlannerResume: function() {
             console.log("xyz-onPlannerResume. being asked to resume.");
             if (this.pauseBtnIcon === null) this.pauseBtnIcon = $('#com-chilipeppr-widget-xyz div.plannerpause');
 
@@ -1283,7 +1286,8 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
                 //this.onPauseByPlanner();
                 this.isPausedByPlanner = false;
                 this.pauseBtnIcon.removeClass('btnIconWarning');
-            } else {
+            }
+            else {
                 console.log("got planner resume, but we're already resumed which is weird.");
             }
         },
@@ -1316,19 +1320,20 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
 
         },
         */
-        toggleInMm: function () {
+        toggleInMm: function() {
             var gCode;
 
             if (this.currentUnits == "mm") {
                 gCode = "G20";
-            } else {
+            }
+            else {
                 gCode = "G21";
             }
             console.log("toggleInMm. command:", gCode);
             chilipeppr.publish("/com-chilipeppr-widget-serialport/send", gCode + '\n');
         },
         currentUnits: null,
-        updateUnitsFromStatus: function (units) {
+        updateUnitsFromStatus: function(units) {
             console.log("updateUnitsFromStatus. units:", units);
             $('.com-chilipeppr-xyz-dim').text(units);
             this.currentUnits = units;
@@ -1337,7 +1342,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             coord: null,
             coordNum: null
         },
-        onCoordsUpdate: function (coords) {
+        onCoordsUpdate: function(coords) {
             console.log("onCoordsUpdate. coords:", coords);
             if (coords.coordNum != this.lastCoords.coordNum) {
                 $('.com-chilipeppr-widget-xyz-coords').text(coords.coord);
@@ -1355,7 +1360,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
         axismy: null,
         axismz: null,
         axisma: null,
-        setupAxes: function () {
+        setupAxes: function() {
             this.axisx = {
                 intblack: $('#com-chilipeppr-widget-xyz-x .xyz-intblack'),
                 intgray: $('#com-chilipeppr-widget-xyz-x .xyz-intgray'),
@@ -1415,7 +1420,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
                 ma: this.axisma
             };
         },
-        updateAxesFromStatus: function (axes) {
+        updateAxesFromStatus: function(axes) {
             console.log("updateAxesFromStatus:", axes);
             if ('x' in axes && axes.x !== null) {
                 this.updateAxis("x", axes.x);
@@ -1460,7 +1465,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             mz: 0,
             ma: 0
         },
-        updateAxis: function (axis, val) {
+        updateAxis: function(axis, val) {
             console.log("updateAxis. axis:", axis, "val:", val);
             var ax = this.axes[axis];
             var axl = this.lastVal[axis];
@@ -1477,7 +1482,8 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
                 if (val < 0 && axl >= 0) {
                     ax.negpos.removeClass("xyz-dimmed");
                     ax.negpos.addClass("xyz-active");
-                } else if (val >= 0 && axl < 0) {
+                }
+                else if (val >= 0 && axl < 0) {
                     ax.negpos.removeClass("xyz-active");
                     ax.negpos.addClass("xyz-dimmed");
                 }
@@ -1509,7 +1515,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             // set lastVal so we have it next time into this method
             this.lastVal[axis] = val;
         },
-        menuSetup: function () {
+        menuSetup: function() {
             $('#com-chilipeppr-widget-xyz .xyz-showa').click(this.showHideAxisA.bind(this));
             $('#com-chilipeppr-widget-xyz .showhideaaxis').click(this.showHideAxisA.bind(this));
             $('#com-chilipeppr-widget-xyz .showhidemDRO').click(this.showHidemDRO.bind(this));
@@ -1566,10 +1572,10 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             this.sendCtr++;
             if (this.sendCtr > 999999) this.sendCtr = 0;
         },
-        gotoZeroM: function (evt) {
+        gotoZeroM: function(evt) {
             this.gotoZero(evt, 'M');
         },
-        gotoZero: function (evt, m) {
+        gotoZero: function(evt, m) {
             console.log("gotoZero. evt.data:", evt.data, "evt:", evt, "m:", m);
             var cmd = "";
             if (m !== undefined) {
@@ -1582,7 +1588,8 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
                 if (this.isAAxisShowing) {
                     cmd += " A0";
                 }
-            } else {
+            }
+            else {
                 cmd += evt.data.toUpperCase() + "0";
             }
             cmd += "\n";
@@ -1591,7 +1598,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             this.publishSend(cmd);
 
         },
-        zeroOutAxisG10: function (evt) {
+        zeroOutAxisG10: function(evt) {
             console.warn("zeroOutAxis10. evt.data:", evt.data, "evt:", evt, "lastVal:", this.lastVal.mx);
             var cmd = '';
             if (evt.data == "xyz") {
@@ -1599,16 +1606,17 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
                 if (this.isAAxisShowing) {
                     cmd += ' A' + (this.lastVal.ma);
                 }
-            } else {
+            }
+            else {
                 cmd += 'G10 L2 P' + (this.lastCoords.coordNum - 53) + evt.data.substr(-1).toUpperCase() + (this.lastVal[evt.data]);
             }
             cmd += "\n";
             console.log(cmd);
             //chilipeppr.publish("/com-chilipeppr-widget-serialport/send", cmd);
             this.publishSend(cmd);
-            
+
         },
-        zeroOutAxisG28: function (evt) {
+        zeroOutAxisG28: function(evt) {
             console.log("zeroOutAxis28. evt.data:", evt.data, "evt:", evt);
             var cmd = "G28.3 ";
             if (evt.data == "xyz") {
@@ -1616,7 +1624,8 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
                 if (this.isAAxisShowing) {
                     cmd += " A0";
                 }
-            } else {
+            }
+            else {
                 cmd += evt.data.toUpperCase() + "0";
             }
             cmd += "\n";
@@ -1624,7 +1633,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             //chilipeppr.publish("/com-chilipeppr-widget-serialport/send", cmd);
             this.publishSend(cmd);
         },
-        zeroOutAxisG92: function (evt) {
+        zeroOutAxisG92: function(evt) {
             console.log("zeroOutAxis92. evt.data:", evt.data, "evt:", evt);
             var cmd = "G92 ";
             if (evt.data == "xyz") {
@@ -1632,7 +1641,8 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
                 if (this.isAAxisShowing) {
                     cmd += " A0";
                 }
-            } else {
+            }
+            else {
                 cmd += evt.data.toUpperCase() + "0";
             }
             cmd += "\n";
@@ -1641,7 +1651,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             this.publishSend(cmd);
 
         },
-        unzeroOutAxisG92: function (evt) {
+        unzeroOutAxisG92: function(evt) {
             console.log("zeroOutAxis92. evt.data:", evt.data, "evt:", evt);
             var cmd = "G92.1 ";
             if (evt.data == "xyz") {
@@ -1649,7 +1659,8 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
                 if (this.isAAxisShowing) {
                     cmd += " A0";
                 }
-            } else {
+            }
+            else {
                 cmd += evt.data.toUpperCase() + "0";
             }
             cmd += "\n";
@@ -1658,17 +1669,20 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             this.publishSend(cmd);
 
         },
-        homeAxis: function (evt) {
+        homeAxis: function(evt) {
             // Homes all axes present in command. At least one axis letter must be present. The value (number) must be provided but is ignored.
             // The homing sequence is fixed and always starts with the Z axis (if requested). The sequence runs ZXYA (but skipping all axes that are not specified in the G28.2 command)
             console.log("homeAxis. evt.data:", evt.data, "evt:", evt);
-            var cmd = "G28.2 ";
+//            var cmd = "G28.2 ";
+            var cmd = "G28 ";
             if (evt.data == "xyz") {
-                cmd += "X0 Y0 Z0";
+//                cmd += "X0 Y0 Z0";
+                cmd += "XY";
                 if (this.isAAxisShowing) {
                     cmd += " A0";
                 }
-            } else {
+            }
+            else {
                 cmd += evt.data.toUpperCase() + "0";
             }
             cmd += "\n";
@@ -1678,13 +1692,14 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
 
         },
         isAAxisShowing: false,
-        showHideAxisA: function () {
+        showHideAxisA: function() {
             var el = $('#com-chilipeppr-widget-xyz-a');
             if (el.hasClass('hidden')) {
                 this.isAAxisShowing = true;
                 el.removeClass('hidden');
                 $('#com-chilipeppr-widget-xyz .showhideaaxis').addClass("active");
-            } else {
+            }
+            else {
                 this.isAAxisShowing = false;
                 el.addClass('hidden');
                 $('#com-chilipeppr-widget-xyz .showhideaaxis').removeClass("active");
@@ -1692,7 +1707,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             $(window).trigger('resize');
         },
         ismDROShowing: false,
-        showHidemDRO: function () {
+        showHidemDRO: function() {
             var el = $('#com-chilipeppr-widget-xyz-mx');
             if ($('#com-chilipeppr-widget-xyz-mx').hasClass('hidden')) {
                 this.ismDROShowing = true;
@@ -1700,7 +1715,8 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
                 $('#com-chilipeppr-widget-xyz-my').removeClass('hidden');
                 $('#com-chilipeppr-widget-xyz-mz').removeClass('hidden');
                 $('#com-chilipeppr-widget-xyz .showhidemDRO').addClass("active");
-            } else {
+            }
+            else {
                 this.ismDROShowing = false;
                 $('#com-chilipeppr-widget-xyz-mx').addClass('hidden');
                 $('#com-chilipeppr-widget-xyz-my').addClass('hidden');
@@ -1709,7 +1725,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             }
             $(window).trigger('resize');
         },
-        btnSetup: function () {
+        btnSetup: function() {
             // setup planner indicator icon
             $('#com-chilipeppr-widget-xyz div.plannerpause').popover({
                 html: true,
@@ -1728,14 +1744,14 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             $('#com-chilipeppr-widget-xyz .btnInMm').popover();
             $('#com-chilipeppr-widget-xyz .btnmachineDRO').popover();
         },
-        jogFocusIndicate: function () {
+        jogFocusIndicate: function() {
             $('#com-chilipeppr-widget-xyz').addClass("panel-primary");
         },
-        jogFocusUnindicate: function () {
+        jogFocusUnindicate: function() {
             $('#com-chilipeppr-widget-xyz').removeClass("panel-primary");
         },
         isInCustomMenu: false,
-        customMenuSetVal: function (itemNum) {
+        customMenuSetVal: function(itemNum) {
             console.log("setting custom val from itemNum:", itemNum);
             if (itemNum instanceof Object) itemNum = itemNum.data; // convert evt obj to just the data
             var cls = ".jogincrCustomInput" + itemNum;
@@ -1749,9 +1765,10 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
                         cls: ".jogincrCustomBtn"
                     }
                 });
-            } else $('#com-chilipeppr-widget-xyz-ftr .jogincrCustomVal').text("-");
+            }
+            else $('#com-chilipeppr-widget-xyz-ftr .jogincrCustomVal').text("-");
         },
-        jogSetup: function () {
+        jogSetup: function() {
             // attach to focus and blur events
             // when focused, we'll jog
             var that = this;
@@ -1795,7 +1812,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
 
             // setup custom increment button
             var custIncrBtn = $('#com-chilipeppr-widget-xyz-ftr .jogincrCustomBtn');
-            custIncrBtn.click(function () {
+            custIncrBtn.click(function() {
                 var txt = $('#com-chilipeppr-widget-xyz-ftr .jogincrCustomVal').text();
                 if (txt != "-") {
                     var val = parseFloat(txt);
@@ -1809,7 +1826,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             });
 
             var custDropUpBtn = $('#com-chilipeppr-widget-xyz-ftr .jogincrCustomDropUpBtn');
-            custDropUpBtn.on('click', function () {
+            custDropUpBtn.on('click', function() {
                 console.log("drop up btn clicked");
                 that.isInCustomMenu = true;
                 //$('#com-chilipeppr-widget-xyz-ftr').blur();
@@ -1817,26 +1834,26 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
 
             // show/ hide.bs.dropdown
             var custMenu = $('#com-chilipeppr-widget-xyz-ftr .jogincrCustomDropUpMenu').parent();
-            custMenu.on('show.bs.dropdown', function () {
+            custMenu.on('show.bs.dropdown', function() {
                 console.log("drop up custom increment menu shown");
                 that.isInCustomMenu = true;
                 $('#com-chilipeppr-widget-xyz-ftr').blur();
             });
-            custMenu.on('hidden.bs.dropdown', function () {
+            custMenu.on('hidden.bs.dropdown', function() {
                 console.log("drop up custom increment menu hidden");
                 that.isInCustomMenu = false;
                 $('#com-chilipeppr-widget-xyz-ftr').blur();
             });
 
             var custInput = $('#com-chilipeppr-widget-xyz-ftr .jogincrCustomInput');
-            custInput.click(function (e) {
+            custInput.click(function(e) {
                 console.log("got click on jogincrCustomInput");
                 that.isInCustomMenu = true;
                 e.stopPropagation();
                 $('#com-chilipeppr-widget-xyz-ftr').blur();
                 console.log("in custom menu mode");
             });
-            custInput.keydown(function (evt) {
+            custInput.keydown(function(evt) {
                 console.log("keypress in custInput. evt:", evt);
                 if (evt.keyCode == 13) {
                     console.log("user hit enter");
@@ -1862,7 +1879,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             $('#com-chilipeppr-widget-xyz-ftr .jogincrCustomSet4').click(4, this.customMenuSetVal.bind(this));
 
             // setup jog btn
-            $('#com-chilipeppr-widget-xyz-jog').click(function () {
+            $('#com-chilipeppr-widget-xyz-jog').click(function() {
                 console.log("setting focus/blur to footer");
                 var elFtr = $('#com-chilipeppr-widget-xyz-ftr');
                 //if ($('#com-chilipeppr-widget-xyz').hasClass('panel-primary'))
@@ -1873,7 +1890,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
 
             var isjogging = false;
 
-            $('#com-chilipeppr-widget-xyz-ftr').focusin(function () {
+            $('#com-chilipeppr-widget-xyz-ftr').focusin(function() {
                 if (that.isInCustomMenu) {
                     console.log("got focusin for axes widget, but we appear to be showing the custom increment menu, so ignoring focus.");
                     return;
@@ -1885,7 +1902,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
                 that.accelBaseValHilite({});
                 console.log("got focusin on axes widget ftr");
             });
-            $('#com-chilipeppr-widget-xyz-ftr').focusout(function () {
+            $('#com-chilipeppr-widget-xyz-ftr').focusout(function() {
 
                 //console.log("jog area blur");
                 $('#com-chilipeppr-widget-xyz').removeClass("panel-primary");
@@ -1902,7 +1919,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             that.lastKeydownTime = 0;
 
 
-            $('#com-chilipeppr-widget-xyz-ftr').keydown(function (evt) {
+            $('#com-chilipeppr-widget-xyz-ftr').keydown(function(evt) {
 
                 if (that.isInCustomMenu) {
                     console.log("custom menu showing. not doing jog.");
@@ -1923,7 +1940,8 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
                 if (!(evt.which > 30 && evt.which < 41)) {
                     //console.log("exiting cuz not arrow key. evt:", evt);
                     return;
-                } else {
+                }
+                else {
                     console.log("evt:", evt);
                 }
 
@@ -1964,21 +1982,26 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
                     // up arrow. Y+
                     direction = "Y+";
                     $('#com-chilipeppr-widget-xyz-ftr .jogy').addClass("hilite");
-                } else if (key == 40) {
+                }
+                else if (key == 40) {
                     // down arrow. Y-
                     direction = "Y-";
                     $('#com-chilipeppr-widget-xyz-ftr .jogyneg').addClass("hilite");
-                } else if (key == 37) {
+                }
+                else if (key == 37) {
                     direction = "X-";
                     $('#com-chilipeppr-widget-xyz-ftr .jogxneg').addClass("hilite");
-                } else if (key == 39) {
+                }
+                else if (key == 39) {
                     direction = "X+";
                     $('#com-chilipeppr-widget-xyz-ftr .jogx').addClass("hilite");
-                } else if (key == 33) {
+                }
+                else if (key == 33) {
                     // page up
                     direction = "Z+";
                     $('#com-chilipeppr-widget-xyz-ftr .jogz').addClass("hilite");
-                } else if (key == 34) {
+                }
+                else if (key == 34) {
                     // page down
                     direction = "Z-";
                     $('#com-chilipeppr-widget-xyz-ftr .jogzneg').addClass("hilite");
@@ -1991,7 +2014,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             });
 
             // when key is up, we're done jogging
-            $('#com-chilipeppr-widget-xyz-ftr').keyup(function (evt) {
+            $('#com-chilipeppr-widget-xyz-ftr').keyup(function(evt) {
 
                 if (that.isInCustomMenu) {
                     console.log("custom menu showing. not doing jog.");
@@ -2016,17 +2039,22 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
                 if (key == 38) {
                     // up arrow. Y+
                     $('#com-chilipeppr-widget-xyz-ftr .jogy').removeClass("hilite");
-                } else if (key == 40) {
+                }
+                else if (key == 40) {
                     // down arrow. Y-
                     $('#com-chilipeppr-widget-xyz-ftr .jogyneg').removeClass("hilite");
-                } else if (key == 37) {
+                }
+                else if (key == 37) {
                     $('#com-chilipeppr-widget-xyz-ftr .jogxneg').removeClass("hilite");
-                } else if (key == 39) {
+                }
+                else if (key == 39) {
                     $('#com-chilipeppr-widget-xyz-ftr .jogx').removeClass("hilite");
-                } else if (key == 33) {
+                }
+                else if (key == 33) {
                     // page up
                     $('#com-chilipeppr-widget-xyz-ftr .jogz').removeClass("hilite");
-                } else if (key == 34) {
+                }
+                else if (key == 34) {
                     // page down
                     $('#com-chilipeppr-widget-xyz-ftr .jogzneg').removeClass("hilite");
                 }
@@ -2035,7 +2063,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             });
 
         },
-        jogBtn: function (evt) {
+        jogBtn: function(evt) {
             //console.log("jogBtn:", arguments);
             var direction = evt.data;
             this.accelBaseValHilite(evt);
@@ -2065,7 +2093,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
         baseval: 1.00,
         accelBaseval: 1.00,
         customOrigVal: null,
-        accelBaseValHilite: function (evt) {
+        accelBaseValHilite: function(evt) {
             //console.log("accelBaseValHilite. this.baseval:", this.baseval);
             //this.accelBaseValUnhilite();
             // see if there's an accelerator key. if so hilite blue to indicate
@@ -2099,7 +2127,8 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
                 $('#com-chilipeppr-widget-xyz-ftr .jogincrCustomBtn').addClass("hiliteblue");
                 this.customOrigVal = this.baseval;
                 $('#com-chilipeppr-widget-xyz-ftr .jogincrCustomVal').text(accelval);
-            } else {
+            }
+            else {
                 this.customOrigVal = null;
                 //$('#com-chilipeppr-widget-xyz-ftr .btnincrements button').removeClass("hiliteblue");
                 if (accelval == 1.0) $('#com-chilipeppr-widget-xyz-ftr .jogincr1').addClass("hiliteblue");
@@ -2108,7 +2137,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
                 if (accelval == 0.001) $('#com-chilipeppr-widget-xyz-ftr .jogincrpt001').addClass("hiliteblue");
             }
         },
-        accelBaseValUnhilite: function () {
+        accelBaseValUnhilite: function() {
             console.log("accelBaseValUnhilite");
             if (this.customOrigVal != null) {
                 // the previous hilite was for custom
@@ -2120,7 +2149,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             $('#com-chilipeppr-widget-xyz-ftr .jogincrements-horiz button').removeClass("hiliteblue");
             //$('#com-chilipeppr-widget-xyz-ftr .btnincrements button').removeClass("hiliteblue");
         },
-        changeBaseVal: function (evt) {
+        changeBaseVal: function(evt) {
             console.log("changeBaseVal. data:", evt.data, evt);
             this.baseval = evt.data.newval;
             this.accelBaseval = this.baseval;
@@ -2137,7 +2166,7 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
                 this.saveOptionsCookie();
             }
         },
-        jog: function (direction, isFast, is100xFast, is1000xFast, is10000xFast) {
+        jog: function(direction, isFast, is100xFast, is1000xFast, is10000xFast) {
             var key = direction;
             var cmd = "G91 G0 ";
             var feedrate = 200;
@@ -2155,23 +2184,28 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
                 // up arrow. Y+
                 xyz = "Y";
                 val = baseval; //0.001;
-            } else if (key == "Y-") {
+            }
+            else if (key == "Y-") {
                 // down arrow. Y-
                 xyz = "Y";
                 val = -1 * baseval; //0.001;
-            } else if (key == "X+") {
+            }
+            else if (key == "X+") {
                 // right arrow. X+
                 xyz = "X";
                 val = baseval; //0.001;
-            } else if (key == "X-") {
+            }
+            else if (key == "X-") {
                 // left arrow. X-
                 xyz = "X";
                 val = -1 * baseval; //0.001;
-            } else if (key == "Z+") {
+            }
+            else if (key == "Z+") {
                 // page up. Z+
                 xyz = "Z";
                 val = baseval; //0.001;
-            } else if (key == "Z-") {
+            }
+            else if (key == "Z-") {
                 // page down. Z-
                 xyz = "Z";
                 val = -1 * baseval; //0.001;
@@ -2185,22 +2219,23 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
                 if (!(this.isPausedByPlanner)) {
                     //chilipeppr.publish("/com-chilipeppr-widget-serialport/send", cmd);
                     this.publishSend(cmd);
-                } else {
+                }
+                else {
                     console.log("planner buffer full, so not sending jog cmd");
                 }
             }
         },
-        initBody: function (evt) {
+        initBody: function(evt) {
             $('#' + this.id + ' .hidebody').click(this.toggleBody.bind(this));
             var config = localStorage.getItem("/" + this.id + "/body");
             if (config == "visible") this.showBody();
             else this.hideBody();
         },
-        toggleBody: function (evt) {
+        toggleBody: function(evt) {
             if ($('#' + this.id + '-body').hasClass('hidden')) this.showBody(evt);
             else this.hideBody(evt);
         },
-        showBody: function (evt) {
+        showBody: function(evt) {
             $('#' + this.id + '-body').removeClass('hidden');
             $('#' + this.id + '-ftr').removeClass('hidden');
             $('#' + this.id + ' .hidebody span').addClass('glyphicon-chevron-up');
@@ -2208,14 +2243,14 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             if (!(evt == null)) localStorage.setItem("/" + this.id + "/body", "visible");
             $(window).trigger('resize');
         },
-        hideBody: function (evt) {
+        hideBody: function(evt) {
             $('#' + this.id + '-body').addClass('hidden');
             $('#' + this.id + '-ftr').addClass('hidden');
             $('#' + this.id + ' .hidebody span').removeClass('glyphicon-chevron-up');
             $('#' + this.id + ' .hidebody span').addClass('glyphicon-chevron-down');
             if (!(evt == null)) localStorage.setItem("/" + this.id + "/body", "hidden");
         },
-        forkSetup: function () {
+        forkSetup: function() {
             //$('#com-chilipeppr-widget-xyz-tbar-fork').prop('href', this.fiddleurl);
             //$('#com-chilipeppr-widget-xyz-tbar-standalone').prop('href', this.url);
             //$('#com-chilipeppr-widget-xyz .fork-name').html(this.id);
@@ -2232,19 +2267,20 @@ cpdefine("inline:com-chilipeppr-widget-xyz", ["chilipeppr_ready", "jquerycookie"
             // load the pubsub viewer / fork element which decorates our upper right pulldown
             // menu with the ability to see the pubsubs from this widget and the forking links
             var that = this;
-            chilipeppr.load("http://fiddle.jshell.net/chilipeppr/zMbL9/show/light/", function () {
-                require(['inline:com-chilipeppr-elem-pubsubviewer'], function (pubsubviewer) {
+            chilipeppr.load("http://fiddle.jshell.net/chilipeppr/zMbL9/show/light/", function() {
+                require(['inline:com-chilipeppr-elem-pubsubviewer'], function(pubsubviewer) {
                     pubsubviewer.attachTo($('#com-chilipeppr-widget-xyz .panel-heading .dropdown-menu'), that);
                 });
             });
 
         },
-        round: function (num, places) {
+        round: function(num, places) {
             return +(Math.round(num + "e+" + places) + "e-" + places);
         },
 
     }
 });
+
     //]]>
     </script>
 
